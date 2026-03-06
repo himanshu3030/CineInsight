@@ -7,7 +7,7 @@ const getCachedSummary = unstable_cache(
     return await Gemini(title, reviews);
   },
   ['gemini-summary-cache'],
-//   { revalidate: 3600 } // Cache for 1 hour
+  { revalidate: 3600 } // Cache for 1 hour
 );
 
 export async function SummaryCard({ movietitle, combinedReviews }: { movietitle: string, combinedReviews: string[] }) {

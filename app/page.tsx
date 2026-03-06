@@ -22,6 +22,7 @@ export default async function Home({
     try {
       moviedata = await FetchMovies(movieId);
       reviews = moviedata.reviews.results.slice(0, 5).map((r: any) => r.content);
+      // console.log("movies reviews : ", reviews)
     } catch (err) {
       console.error("Fetch Error:", err);
       error = true;

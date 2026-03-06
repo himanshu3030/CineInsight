@@ -4,9 +4,9 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
 export async function Gemini(movieTitle: string, combinedReviews: string[]) {
-  // Use the standard model name
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
+  const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
+  
   // Join reviews into a single block of text for the prompt
   const reviewsText = combinedReviews.length > 0 
     ? combinedReviews.join("\n---\n") 
@@ -38,6 +38,7 @@ export async function Gemini(movieTitle: string, combinedReviews: string[]) {
     
     
     const cleanJson = text.replace(/```json|```/g, "").trim();
+  
     return JSON.parse(cleanJson);
   } catch (error) {
     console.error("Gemini Error Details:", error);
