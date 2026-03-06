@@ -1,4 +1,4 @@
-import { FetchMoviesCasts } from "@/lib/tmdbApiCall"
+
 
 interface CastMember {
     id: number;
@@ -15,14 +15,11 @@ interface MovieData {
 
 export async function CastCard({movie}:{movie: MovieData}){
 
-    // const castdata = await FetchMoviesCasts("tt0133093")
-    // console.log("cast name : " ,movie)
+   
 
     const castlist = movie.credits.cast || [] 
 
 
-    // console.log("********* CAST: ",typeof(movie.cast))
-    // console.log("********* CAST: ",cast)
 
     const name = [
         {
